@@ -60,7 +60,7 @@ export function Form() {
     tagName: "div",
     children: [
       {
-        id: "1",
+        id: '1',
         tagName: "input",
         attributes: {
           type: "text",
@@ -77,7 +77,7 @@ export function Form() {
         bgColor: "red",
       }),
       {
-        tagName: "div",
+        tagName: 'div',
         children: `Meu nome é: ${name}`,
       },
     ],
@@ -89,11 +89,11 @@ export function Form() {
 
 ```js
 // Button.js
-export function Button({ onClick, title }) {
+export function Button({ onClick, title, color='black', bgColor}) {
   return {
     tagName: "button",
     attributes: {
-      style: "color: white; background-color: red;",
+      style: `color: ${color}; background-color: ${bgColor};`
     },
     handlers: {
       click: onClick,
