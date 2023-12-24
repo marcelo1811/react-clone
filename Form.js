@@ -30,9 +30,7 @@ export function Form() {
         children: Button({ title: "Limpar", onClick: handleClickClear }),
       },
       {
-        attributes: {
-          textContent: `Meu nome é: ${name}`,
-        },
+        children: `Meu nome é: ${name}`,
       },
     ],
   };

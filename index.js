@@ -17,11 +17,12 @@ function handleEvent(e, fn) {
 function convertToHTMLNode(data) {
   const { tagName, id, attributes, handlers, children } = data;
 
+  let element;
   if (!tagName) {
-    return document.createTextNode(attributes.textContent);
+    return document.createTextNode(children);
   }
 
-  const element = document.createElement(tagName);
+  element = document.createElement(tagName);
   element.id = id || generateUUID();
   if (attributes) {
     Object.entries(attributes).forEach(([attribute, value]) => {
@@ -36,6 +37,8 @@ function convertToHTMLNode(data) {
   if (children) {
     if (Array.isArray(children)) {
       element.replaceChildren(...children.map(convertToHTMLNode));
+    } else if (typeof children === 'string') {
+      element['textContent'] = children
     } else {
       element.replaceChildren(convertToHTMLNode(children));
     }

@@ -9,9 +9,7 @@ export function Button({ onClick, title }) {
     },
     children: [
       {
-        attributes: {
-          textContent: title,
-        },
+        children: title
       },
     ],
   };
