@@ -1,6 +1,7 @@
 import { App } from "./App.js";
 import { generateUUID } from "./generateUUID.js";
 
+const root = document.getElementById("root");
 let elements;
 
 function createVDOM() {
@@ -32,7 +33,7 @@ function convertToHTMLNode(data) {
     if (Array.isArray(children)) {
       element.replaceChildren(...children.map(convertToHTMLNode));
     } else {
-      element.replaceChildren(convertToHTMLNode(children))
+      element.replaceChildren(convertToHTMLNode(children));
     }
   }
   return element;
@@ -40,7 +41,7 @@ function convertToHTMLNode(data) {
 
 function updateVDOM() {
   elements = createVDOM();
-  document.body.replaceChildren(...elements.map(convertToHTMLNode));
+  root.replaceChildren(...elements.map(convertToHTMLNode));
 }
 
 updateVDOM();
