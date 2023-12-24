@@ -1,6 +1,6 @@
 import { Button } from "./Button.js";
 
-let name = "oi";
+let name = "";
 
 export function Form() {
   function handleClickClear() {
@@ -30,9 +30,8 @@ export function Form() {
         children: Button({ title: "Limpar", onClick: handleClickClear }),
       },
       {
-        tagName: "span",
         attributes: {
-          textContent: `Meu nome  ${name}`,
+          textContent: `Meu nome é: ${name}`,
         },
       },
     ],

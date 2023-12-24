@@ -4,14 +4,13 @@ export function Button({ onClick, title }) {
     attributes: {
       style: 'color: white; background-color: red;'
     },
+    handlers: {
+      click: onClick,
+    },
     children: [
       {
-        tagName: "span",
         attributes: {
           textContent: title,
-        },
-        handlers: {
-          click: onClick,
         },
       },
     ],

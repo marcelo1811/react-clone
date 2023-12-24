@@ -16,9 +16,13 @@ function handleEvent(e, fn) {
 
 function convertToHTMLNode(data) {
   const { tagName, id, attributes, handlers, children } = data;
-  const element = document.createElement(tagName);
 
-  element.id = data.id || generateUUID();
+  if (!tagName) {
+    return document.createTextNode(attributes.textContent);
+  }
+
+  const element = document.createElement(tagName);
+  element.id = id || generateUUID();
   if (attributes) {
     Object.entries(attributes).forEach(([attribute, value]) => {
       element[attribute] = value;
