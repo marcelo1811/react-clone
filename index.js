@@ -40,8 +40,8 @@ function convertToHTMLNode(data) {
 }
 
 function updateVDOM() {
-  elements = createVDOM();
-  root.replaceChildren(...elements.map(convertToHTMLNode));
+  elements = createVDOM().map(convertToHTMLNode);
+  root.replaceChildren(...elements);
 }
 
 updateVDOM();
