@@ -10,19 +10,18 @@ function createVDOM() {
 
 function handleEvent(e, fn) {
   fn(e);
-  updateVDOM();
+  render();
   document.getElementById(e.target.id).focus();
 }
 
 function convertToHTMLNode(data) {
   const { tagName, id, attributes, handlers, children } = data;
 
-  let element;
   if (!tagName) {
     return document.createTextNode(children);
   }
-
-  element = document.createElement(tagName);
+  
+  const element = document.createElement(tagName);
   element.id = id || generateUUID();
   if (attributes) {
     Object.entries(attributes).forEach(([attribute, value]) => {
@@ -38,7 +37,7 @@ function convertToHTMLNode(data) {
     if (Array.isArray(children)) {
       element.replaceChildren(...children.map(convertToHTMLNode));
     } else if (typeof children === 'string') {
-      element['textContent'] = children
+      element.textContent = children
     } else {
       element.replaceChildren(convertToHTMLNode(children));
     }
@@ -46,9 +45,9 @@ function convertToHTMLNode(data) {
   return element;
 }
 
-function updateVDOM() {
+function render() {
   elements = createVDOM().map(convertToHTMLNode);
   root.replaceChildren(...elements);
 }
 
-updateVDOM();
+render();

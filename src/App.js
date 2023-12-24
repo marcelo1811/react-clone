@@ -7,7 +7,7 @@ export function App() {
       children: [
         {
           tagName: "h1",
-          children: "Digite seu nome",
+          children: "Type your name",
         },
         {
           tagName: "div",

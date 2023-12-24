@@ -26,14 +26,14 @@ export function Form() {
         },
       },
       Button({
-        title: "Limpar",
+        title: "Clear",
         onClick: handleClickClear,
         color: "white",
         bgColor: "red",
       }),
       {
         tagName: 'div',
-        children: `Meu nome é: ${name}`,
+        children: `My name is: ${name}`,
       },
     ],
   };
