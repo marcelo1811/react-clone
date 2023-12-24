@@ -40,6 +40,7 @@ Please note that React-Clone is a minimalistic version of React and does not inc
 ### Form component
 
 ```js
+// Form.js
 import { Button } from "./Button.js";
 
 let name = "";
@@ -91,14 +92,9 @@ export function Button({ onClick, title }) {
     handlers: {
       click: onClick,
     },
-    children: [
-      {
-        children: title
-      },
-    ],
+    children: title,
   };
 }
-
 ```
 
 Simply include the `react-clone.js` file in your HTML and write your components using React-Clone's API.

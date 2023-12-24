@@ -7,10 +7,6 @@ export function Button({ onClick, title }) {
     handlers: {
       click: onClick,
     },
-    children: [
-      {
-        children: title
-      },
-    ],
+    children: title,
   };
 }
