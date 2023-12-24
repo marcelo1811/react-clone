@@ -1,4 +1,5 @@
 import { App } from "./App.js";
+import { generateUUID } from "./generateUUID.js";
 
 let elements;
 
@@ -16,7 +17,7 @@ function convertToHTMLNode(data) {
   const { tagName, id, attributes, handlers, children } = data;
   const element = document.createElement(tagName);
 
-  element.id = id;
+  element.id = data.id || generateUUID();
   if (attributes) {
     Object.entries(attributes).forEach(([attribute, value]) => {
       element[attribute] = value;
@@ -28,7 +29,11 @@ function convertToHTMLNode(data) {
     });
   }
   if (children) {
-    element.replaceChildren(...children.map(convertToHTMLNode));
+    if (Array.isArray(children)) {
+      element.replaceChildren(...children.map(convertToHTMLNode));
+    } else {
+      element.replaceChildren(convertToHTMLNode(children))
+    }
   }
   return element;
 }

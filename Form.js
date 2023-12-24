@@ -1,3 +1,5 @@
+import { Button } from "./Button.js";
+
 let name = "oi";
 
 export function Form() {
@@ -9,51 +11,30 @@ export function Form() {
     name = e.target.value;
   }
 
-  return [
-    {
-      id: "3",
-      tagName: "div",
-      children: [
-        {
-          id: "1",
-          tagName: "input",
-          attributes: {
-            type: "text",
-            value: name,
-          },
-          handlers: {
-            input: handleChangeName,
-          },
+  return {
+    tagName: "div",
+    children: [
+      {
+        id: '1',
+        tagName: "input",
+        attributes: {
+          type: "text",
+          value: name,
         },
-        {
-          id: "2",
-          tagName: "div",
-          children: [
-            {
-              id: "5",
-              tagName: "button",
-              handlers: {
-                click: handleClickClear,
-              },
-              children: [
-                {
-                  tagName: "span",
-                  attributes: {
-                    textContent: "Limpar",
-                  },
-                },
-              ],
-            },
-          ],
+        handlers: {
+          input: handleChangeName,
         },
-        {
-          id: "4",
-          tagName: "span",
-          attributes: {
-            textContent: `Meu nome  ${name}`,
-          },
+      },
+      {
+        tagName: "div",
+        children: Button({ title: "Limpar", onClick: handleClickClear }),
+      },
+      {
+        tagName: "span",
+        attributes: {
+          textContent: `Meu nome  ${name}`,
         },
-      ],
-    },
-  ];
+      },
+    ],
+  };
 }
