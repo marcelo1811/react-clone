@@ -1,5 +1,5 @@
-import { App } from "./App.js";
-import { generateUUID } from "./generateUUID.js";
+import { App } from "./src/App.js";
+import { generateUUID } from "./src/utils/generateUUID.js";
 
 const root = document.getElementById("root");
 let elements;
