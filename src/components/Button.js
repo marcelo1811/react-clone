@@ -1,8 +1,8 @@
-export function Button({ onClick, title }) {
+export function Button({ onClick, title, color='black', bgColor}) {
   return {
     tagName: "button",
     attributes: {
-      style: 'color: white; background-color: red;'
+      style: `color: ${color}; background-color: ${bgColor};`
     },
     handlers: {
       click: onClick,

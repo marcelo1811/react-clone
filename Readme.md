@@ -27,6 +27,8 @@ React-Clone includes simplified implementations of the following React core feat
 
 - **Component Rendering**: Create and render components.
 
+- **Component Props**: Pass custom props to a component.
+
 - **State Management**: Implement a basic state management system.
 
 - **Virtual DOM**: Construct and update a virtual DOM.
@@ -58,7 +60,7 @@ export function Form() {
     tagName: "div",
     children: [
       {
-        id: '1',
+        id: "1",
         tagName: "input",
         attributes: {
           type: "text",
@@ -68,11 +70,14 @@ export function Form() {
           input: handleChangeName,
         },
       },
+      Button({
+        title: "Limpar",
+        onClick: handleClickClear,
+        color: "white",
+        bgColor: "red",
+      }),
       {
         tagName: "div",
-        children: Button({ title: "Limpar", onClick: handleClickClear }),
-      },
-      {
         children: `Meu nome é: ${name}`,
       },
     ],
@@ -81,13 +86,14 @@ export function Form() {
 ```
 
 ### Button component
+
 ```js
 // Button.js
 export function Button({ onClick, title }) {
   return {
     tagName: "button",
     attributes: {
-      style: 'color: white; background-color: red;'
+      style: "color: white; background-color: red;",
     },
     handlers: {
       click: onClick,

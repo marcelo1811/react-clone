@@ -25,7 +25,12 @@ export function Form() {
           input: handleChangeName,
         },
       },
-      Button({ title: "Limpar", onClick: handleClickClear }),
+      Button({
+        title: "Limpar",
+        onClick: handleClickClear,
+        color: "white",
+        bgColor: "red",
+      }),
       {
         tagName: 'div',
         children: `Meu nome é: ${name}`,
